@@ -51,5 +51,10 @@ public class Role implements GrantedAuthority {
         return getName();
     }
 
+    @Override
+    public String toString() {
+      //  System.out.println("запрос роли " + name);
+        return name.replaceFirst("ROLE_","");
 
+    }
 }

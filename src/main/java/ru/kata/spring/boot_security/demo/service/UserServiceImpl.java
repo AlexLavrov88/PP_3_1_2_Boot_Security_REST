@@ -70,4 +70,5 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         return new ru.kata.spring.boot_security.demo.security.UserDetails(user.get());
     }
 
+
 }

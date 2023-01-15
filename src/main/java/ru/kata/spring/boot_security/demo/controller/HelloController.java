@@ -14,7 +14,7 @@ public class HelloController {
     public String printWelcome(ModelMap model) {
         List<String> messages = new ArrayList<>();
         messages.add("Hello!");
-        messages.add("This is a task 3.1.2 KATA Academy");
+        messages.add("This is a task 3.1.3 KATA Academy");
         messages.add("Made by Lavrov Aleksandr");
         model.addAttribute("messages", messages);
         return "hello";
