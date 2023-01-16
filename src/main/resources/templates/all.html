@@ -126,10 +126,10 @@
                                                 </div>
                                                 <div class="form-group text-center">
                                                   <strong>Password</strong>
-                                                  <input type="text" class="form-control" name="password" th:value="${user.password}" id="edit-password"/>
+                                                  <input type="text" class="form-control" name="password"  id="edit-password"/>
                                                 </div>
                                                 <div class="form-group text-center">
-                                                  <strong>Roles</strong>
+                                                  <strong>Roles<!/strong>
                                                   <select class="form-control" name="name" multiple size="2">
                                                     <div th:each="role : ${roles}">
                                                       <option th:text="${role.toString()}" th:value="${role.getName()}"
