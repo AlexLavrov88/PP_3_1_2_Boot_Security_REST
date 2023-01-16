@@ -15,30 +15,25 @@ import java.util.Set;
 public class User implements UserDetails {
 
     @Id
-    @Column(name = "user_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @NotNull
-    @Column(name = "username")
     private String username;
-    @Column(name = "surname")
     private String surname;
-    @Column(name = "phone")
     private String phone;
-    @Column(name = "password")
     private String password;
 
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToMany
     @JoinTable(name = "user_roles",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "role_id")
+            joinColumns = @JoinColumn(name = "users"),
+            inverseJoinColumns = @JoinColumn(name = "roles")
     )
     private Set<Role> roles;
 
     public User() {
     }
 
-    public User(String username,  String surname,String phone,String password, Set<Role> roles) {
+    public User(String username, String surname, String phone, String password, Set<Role> roles) {
         this.username = username;
         this.surname = surname;
         this.phone = phone;
