@@ -1,6 +1,5 @@
 package ru.kata.spring.boot_security.demo.util;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import ru.kata.spring.boot_security.demo.model.Role;
 import ru.kata.spring.boot_security.demo.model.User;
@@ -16,7 +15,6 @@ public class Util {
     private final UserService userService;
     private final RoleService roleService;
 
-    @Autowired
     public Util(UserService userService, RoleService roleService) {
         this.userService = userService;
         this.roleService = roleService;
@@ -24,8 +22,8 @@ public class Util {
 
     @PostConstruct
     public void initDB() {
-        Role adminRole = new Role(1, "ROLE_ADMIN");
-        Role userRole = new Role(2, "ROLE_USER");
+        Role adminRole = new Role(1L, "ROLE_ADMIN");
+        Role userRole = new Role(2L, "ROLE_USER");
         Set<Role> adminSet = new HashSet<>();
         Set<Role> userSet = new HashSet<>();
         roleService.addRole(adminRole);
@@ -36,15 +34,15 @@ public class Util {
 
         User admin = new User("admin", "admin",
                 "+7-910-496-93-45", "admin", adminSet);
-        admin.setId(1);
+        admin.setId(1L);
 
         User user = new User("user", "user",
                 "+7-234-567-45-32", "user", userSet);
 
-        user.setId(2);
+        user.setId(2L);
 
-        userService.saveUser(admin);
-        userService.saveUser(user);
+        userService.updateAndSaveUser(admin);
+        userService.updateAndSaveUser(user);
 
     }
 }

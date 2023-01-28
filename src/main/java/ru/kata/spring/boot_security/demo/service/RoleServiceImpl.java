@@ -5,10 +5,12 @@ import org.springframework.stereotype.Service;
 import ru.kata.spring.boot_security.demo.model.Role;
 import ru.kata.spring.boot_security.demo.repository.RoleRepository;
 
-import java.util.*;
-
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 @Service
 public class RoleServiceImpl implements RoleService {
+
     private final RoleRepository roleRepository;
 
     @Autowired
@@ -30,7 +32,7 @@ public class RoleServiceImpl implements RoleService {
     public Set<Role> getRoleName(List<String> name) {
         Set<Role> roles = new HashSet<>();
         for (Role role : getRoles()) {
-            if (name.contains(role.getName()))
+            if (name.contains(role.getRoleName()))
                 roles.add(role);
         }
         return roles;

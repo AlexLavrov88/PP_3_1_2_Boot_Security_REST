@@ -8,10 +8,10 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import ru.kata.spring.boot_security.demo.model.User;
 
-@EnableJpaRepositories
-public interface UserRepository extends JpaRepository<User, Integer> {
+@Repository
+public interface UserRepository extends JpaRepository<User, Long> {
         @Query("select u from User u join fetch u.roles where u.username = (:username)")
-    User findByUsername(@Param("username") String username);
+    User findByUsername(String username);
 }
 
 
