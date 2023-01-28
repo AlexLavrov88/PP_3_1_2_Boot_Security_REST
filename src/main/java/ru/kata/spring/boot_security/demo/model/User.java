@@ -28,7 +28,7 @@ public class User implements UserDetails {
     private String phone;
     private String password;
 
-    @ManyToMany( fetch = FetchType.LAZY)
+    @ManyToMany
     @JoinTable(name = "user_roles",
             joinColumns = @JoinColumn(name = "users",referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "roles",referencedColumnName = "id")

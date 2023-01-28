@@ -117,12 +117,17 @@ editUserForm.addEventListener('submit', (e) => {
                 document.getElementById('roles2').value
             ]
         })
-    }).then()
-
-
-    $("#modalEdit").modal("hide")
+    }).then(res => res.json())
+        .then(data => {
+            users = data;
+            getAllUsers(users);
+        })
+        .then(res => {
+            document.getElementById('edit_user').click()
+            // alert('Пользователь добавлен')
+        })
     refreshTable()
-})
+});
 
 /////////Delete user/////////////////////////////////
 deleteUserForm.addEventListener('submit', (e) => {
