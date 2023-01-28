@@ -79,7 +79,7 @@ addUserForm.addEventListener('submit', (e) => {
             getAllUsers(users);
         })
         .then(res => {
-            document.getElementById('addNewUser').click()
+            document.getElementById('add_new_user').click()
         })
     refreshTable()
 });

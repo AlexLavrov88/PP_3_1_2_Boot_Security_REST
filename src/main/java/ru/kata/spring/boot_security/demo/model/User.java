@@ -28,10 +28,10 @@ public class User implements UserDetails {
     private String phone;
     private String password;
 
-    @ManyToMany
+    @ManyToMany( fetch = FetchType.LAZY)
     @JoinTable(name = "user_roles",
-            joinColumns = @JoinColumn(name = "users"),
-            inverseJoinColumns = @JoinColumn(name = "roles")
+            joinColumns = @JoinColumn(name = "users",referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "roles",referencedColumnName = "id")
     )
     @ToString.Exclude
     private Set<Role> roles;
